@@ -1,4 +1,4 @@
-#define BUTTON_PIN 12 // The Arduino Nano ESP32 pin connected to the button
+#define BUTTON_PIN 11 // The Arduino Nano ESP32 pin connected to the button
 #define LED_PIN    13 // The Arduino Nano ESP32 pin connected to the LED
 
 int button_state = 0;   // variable for reading the pushbutton status
