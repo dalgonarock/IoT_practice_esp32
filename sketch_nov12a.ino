@@ -6,7 +6,6 @@
 #define DHTTYPE DHT11
 DHT dht(DHTPIN, DHTTYPE);
 
-const int LDR_PIN = 34;
 const char* ssid = "onestar";
 const char* password = "22615015";
 // Public Broker
@@ -38,14 +37,13 @@ void loop() {
       return;
     }
   }
- int ldr = analogRead(LDR_PIN);
  float temp = dht.readTemperature();
  float hum = dht.readHumidity();
 
   // JSON 형식으로 데이터 구성
   char payload[100];
   snprintf(payload, sizeof(payload), 
-                "{\"temp\":%.1f,\"hum\":%.1f,\"ldr\":%d}",temp, hum, ldr);
+                "{\"temp\":%.1f,\"hum\":%.1f}",temp, hum);
 
   client.publish(topic, payload);
   Serial.printf("[Publish] %s\n", payload);
